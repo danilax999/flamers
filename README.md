@@ -1,6 +1,8 @@
 # Flamers 🔥
 
-![Demo](media/demo-1.mp4)
+https://github.com/danilax999/flamers/assets/75566563/b2ff506c-9bf9-4b21-94e8-149d68b62beb
+
+https://github.com/danilax999/flamers/assets/75566563/4be48f60-00fe-48d3-a8dc-82a8f0eb87bf
 
 `flamers` is a terminal program designed for fire simulation, created for 
 entertainment purposes. You can customize the appearance of your fire 
@@ -20,8 +22,7 @@ flamers [OPTIONS]
 - `-p, --speed <SPEED>`: Set fire simulation speed. Default: `0.0006`
 - `-o, --offset <OFFSET>`: Set vertical offset. Default: `0.0`
 - `-f, --fps <FPS>`: Set maximum frames per second. Default: `60`
-- `-g, --gradient <GRADIENT>`: Set flame gradient. Default: `#FFFF64;#FFBE1E;#FF9600;#FF5000;#B45000;#503C28;#28281E;#000000`
-  ![Gradient demo](media/demo-1.mp4)
+- `-g, --gradient <GRADIENT>`: Set flame gradient. Default: `#FFFF64;#FFBE1E;#FF9600;#FF5000;#B45000;#503C28;#28281E;#000000` 
 - `-h, --help`: Print help
 
 ## Values
@@ -34,9 +35,9 @@ flamers [OPTIONS]
 -  `FPS`: Integer > 0
 -  `GRADIENT`: Semicolon-separated string of hex colors in the format `#RRGGBB`.
   Example values:
-  -  Orange: `#FFFF64;#FFBE1E;#FF9600;#FF5000;#B45000;#503C28;#28281E;#000000`
-  -  Blue:   `#64FFFF;#1EBEFF;#0096FF;#0050FF;#0050B4;#283C50;#1E2828;#000000`
-  -  Green:  `#78FF96;#1EFF5A;#00C850;#00B446;#00963C;#285028;#1E281E;#000000`
+    -  Orange: `#FFFF64;#FFBE1E;#FF9600;#FF5000;#B45000;#503C28;#28281E;#000000`
+    -  Blue:   `#64FFFF;#1EBEFF;#0096FF;#0050FF;#0050B4;#283C50;#1E2828;#000000`
+    -  Green:  `#78FF96;#1EFF5A;#00C850;#00B446;#00963C;#285028;#1E281E;#000000`
 
 ## Available keymaps
 
