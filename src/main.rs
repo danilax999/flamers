@@ -182,6 +182,19 @@ fn mix_rgb(n: f64, gradient: &[Rgb]) -> Rgb {
 #[command(
     about = "Fire simulation in terminal",
     after_help = "\
+Values:
+  ZOOM      Integer > 0
+  SCALE     Float >= 0
+  DETAIL    Integer > 0
+  SPEED     Float >= 0
+  OFFSET    Float
+  FPS       Integer > 0
+  GRADIENT  Simicolon-separated string of hex colors in the format `#RRGGBB`.
+            Example values:
+              Orange: #FFFF64;#FFBE1E;#FF9600;#FF5000;#B45000;#503C28;#28281E;#000000
+              Blue:   #64FFFF;#1EBEFF;#0096FF;#0050FF;#0050B4;#283C50;#1E2828;#000000
+              Green:  #78FF96;#1EFF5A;#00C850;#00B446;#00963C;#285028;#1E281E;#000000
+
 Available keymaps:
   q          Quit
   +          Zoom in
@@ -194,28 +207,23 @@ Available keymaps:
   E          Descrease speed
   <Up>, k    Decrease vertical offset (Scroll up)
   <Down>, j  Increase vertical offset (Scroll down)
-
-Possible flame gradient values:
-  Orange  #FFFF64;#FFBE1E;#FF9600;#FF5000;#B45000;#503C28;#28281E;#000000
-  Blue    #64FFFF;#1EBEFF;#0096FF;#0050FF;#0050B4;#283C50;#1E2828;#000000
-  Green   #78FF96;#1EFF5A;#00C850;#00B446;#00963C;#285028;#1E281E;#000000
 "
 )]
 struct Params {
     #[arg(short, long,
-        help = "Zoom level",
+        help = "Set zoom level",
         value_parser = parse_zoom_level,
         default_value = "0.28")]
     zoom: f64,
 
     #[arg(short, long,
-        help = "Fire simulation scale",
+        help = "Set fire simulation scale",
         value_parser = parse_scale,
         default_value = "3.0")]
     scale: f64,
 
     #[arg(short, long,
-        help = "Fire simulation detailization level",
+        help = "Set fire simulation detalization level",
         value_parser = parse_detail,
         default_value = "3")]
     detail: usize,
@@ -224,22 +232,22 @@ struct Params {
         short = 'p',
         long,
         value_parser = parse_speed,
-        help = "Fire simulation speed",
+        help = "Set fire simulation speed",
         default_value = "0.0006",
     )]
     speed: f64,
 
-    #[arg(short, long, help = "Vertical offset", default_value = "0.0")]
+    #[arg(short, long, help = "Set vertical offset", default_value = "0.0")]
     offset: f64,
 
     #[arg(short, long,
-        help = "Maximum frames per second",
+        help = "Set maximum frames per second",
         value_parser = parse_fps,
         default_value = "60")]
     fps: usize,
 
     #[arg(short, long,
-        help="Flame gradient",
+        help="Set flame gradient",
         value_parser = parse_gradient,
         default_value =
         "#FFFF64;#FFBE1E;#FF9600;#FF5000;#B45000;#503C28;#28281E;#000000")]
