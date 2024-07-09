@@ -50,3 +50,17 @@ flamers [OPTIONS]
 - `E`: Decrease speed
 - `<Up>, k`: Decrease vertical offset (Scroll up)
 - `<Down>, j`: Increase vertical offset (Scroll down)
+
+## Installation
+
+Using cargo:
+
+```bash
+cargo install --git https://github.com/danilax999/flamers.git
+```
+
+Using nix flakes
+
+```bash
+nix run https://github.com/danilax999/flamers.git
+```
