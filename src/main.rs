@@ -13,8 +13,10 @@ fn main() -> std::io::Result<()> {
         mut detail,
         mut speed,
         mut offset,
+        fps,
         gradient,
     } = Params::parse();
+    let frame_rate = 10u128.pow(6) / fps as u128; // Frame rate in microseconds
 
     let mut stdout =
         std::io::BufWriter::with_capacity(1024 * 1024, std::io::stdout().lock());
@@ -32,7 +34,8 @@ fn main() -> std::io::Result<()> {
 
     loop {
         crossterm::queue!(stdout, cursor::MoveTo(0, 0))?;
-        let t = std::time::SystemTime::now()
+        let start = std::time::SystemTime::now();
+        let t = start
             .duration_since(std::time::UNIX_EPOCH)
             .unwrap()
             .as_millis();
@@ -60,7 +63,12 @@ fn main() -> std::io::Result<()> {
         }
         stdout.flush()?;
 
-        if event::poll(std::time::Duration::from_millis(0))? {
+        let duration = std::time::SystemTime::now()
+            .duration_since(start)
+            .unwrap()
+            .as_micros();
+        let pause = frame_rate.saturating_sub(duration);
+        if event::poll(std::time::Duration::from_micros(pause as u64))? {
             use event::KeyCode::{self, Char};
             match event::read()? {
                 event::Event::Key(key) => match key.code {
@@ -225,6 +233,12 @@ struct Params {
     offset: f64,
 
     #[arg(short, long,
+        help = "Maximum frames per second",
+        value_parser = parse_fps,
+        default_value = "60")]
+    fps: usize,
+
+    #[arg(short, long,
         help="Flame gradient",
         value_parser = parse_gradient,
         default_value =
@@ -265,6 +279,15 @@ fn parse_speed(input: &str) -> ParseResult<f64> {
     let n = input.parse::<f64>().map_err(|e| e.to_string())?;
     if n < 0. {
         Err(format!("Speed expected to be >= 0, got `{n}`"))
+    } else {
+        Ok(n)
+    }
+}
+
+fn parse_fps(input: &str) -> ParseResult<usize> {
+    let n = input.parse::<usize>().map_err(|e| e.to_string())?;
+    if n == 0 {
+        Err(format!("FPS expected to be > 0, got `{n}`"))
     } else {
         Ok(n)
     }
