@@ -81,8 +81,8 @@ fn main() -> std::io::Result<()> {
                     Char('D') => detail = (detail - 1).max(1),
                     Char('e') => speed += 1e-4f64,
                     Char('E') => speed = (speed - 1e-4f64).max(0.),
-                    KeyCode::Up => offset -= 0.1,
-                    KeyCode::Down => offset += 0.1,
+                    KeyCode::Up | Char('k') => offset -= 0.1,
+                    KeyCode::Down | Char('j') => offset += 0.1,
                     _ => (),
                 },
                 event::Event::Resize(width1, height1) => {
