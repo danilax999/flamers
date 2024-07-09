@@ -189,7 +189,7 @@ Values:
   SPEED     Float >= 0
   OFFSET    Float
   FPS       Integer > 0
-  GRADIENT  Simicolon-separated string of hex colors in the format `#RRGGBB`.
+  GRADIENT  Semicolon-separated string of hex colors in the format `#RRGGBB`.
             Example values:
               Orange: #FFFF64;#FFBE1E;#FF9600;#FF5000;#B45000;#503C28;#28281E;#000000
               Blue:   #64FFFF;#1EBEFF;#0096FF;#0050FF;#0050B4;#283C50;#1E2828;#000000
@@ -223,7 +223,7 @@ struct Params {
     scale: f64,
 
     #[arg(short, long,
-        help = "Set fire simulation detalization level",
+        help = "Set fire simulation detail level",
         value_parser = parse_detail,
         default_value = "3")]
     detail: usize,
