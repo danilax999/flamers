@@ -1,6 +1,6 @@
 # Flamers 🔥
 
-![[./demo.mp4]]
+![Demo](media/demo-1.mp4)
 
 `flamers` is a terminal program designed for fire simulation, created for 
 entertainment purposes. You can customize the appearance of your fire 
@@ -21,6 +21,7 @@ flamers [OPTIONS]
 - `-o, --offset <OFFSET>`: Set vertical offset. Default: `0.0`
 - `-f, --fps <FPS>`: Set maximum frames per second. Default: `60`
 - `-g, --gradient <GRADIENT>`: Set flame gradient. Default: `#FFFF64;#FFBE1E;#FF9600;#FF5000;#B45000;#503C28;#28281E;#000000`
+  ![Gradient demo](media/demo-1.mp4)
 - `-h, --help`: Print help
 
 ## Values
