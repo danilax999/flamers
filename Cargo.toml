@@ -1,0 +1,9 @@
+[package]
+name = "flamers"
+version = "0.1.0"
+edition = "2021"
+authors = ["Daniil Kharitonov"]
+
+[dependencies]
+clap = { version = "4.5.8", features = ["derive"] }
+crossterm = "0.27.0"
