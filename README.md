@@ -64,5 +64,5 @@ cargo install --git https://github.com/danilax999/flamers.git
 Using nix flakes
 
 ```bash
-nix run https://github.com/danilax999/flamers.git
+nix run github:danilax999/flamers
 ```
